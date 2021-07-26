@@ -18,8 +18,13 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
             {
+                test: /\.s[ac]ss$/i,
+                use: ['style-loader', 'css-loader','sass-loader'],
+            },
+            {
                 test: /\.(png|jpg|svg|gif)$/i,
-                use: ['file-loader'],
+                dependency: { not: ['url'] },
+                use: ['url-loader'],
             }
         ]
     }
